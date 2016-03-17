@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8 />
+	<title>Browser Technologies: Fons Hettema Demo's</title>
+	<link href="../assets/css/main.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	
+	<header>
+	 <h1>HTML demo</h1>
+	</header>
+
+	<section class="video">
+
+		<h2>Feature 1: Video element</h2>
+
+		<p>
+		 	Hieronder het video element dat niet in elke browser wordt ondersteund. In IE8 en Opera mini lukt het niet om de video af te spelen.
+		</p>
+
+		<video controls poster="#" width="600" height="400">
+		    <source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" type="video/mp4" />
+		    <source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.webm" type="video/webm" />
+		    <source src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.ogv" type="video/ogg" />
+		    <p>Your browser doesn't support the video tag <a href="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4">Here is a download link</a></p>
+		</video>
+
+		<h3>Fallback</h3>
+	
+		<p>
+		 	Om het op te lossen heb ik als fallback na de source tags een p tag geplaatst die de browser pakt als de video niet werkt en daarin staat dat als de video niet ondersteund wordt in de browser dat je dan de video alsnog kunt downloaden via een link.
+		</p>
+
+		<h3>Sources</h3>
+
+		<ul>
+			<li><a href="https://developer.mozilla.org/nl/docs/Web/Guide/HTML/HTML5_audio_en_video_gebruiken">https://developer.mozilla.org/nl/docs/Web/Guide/HTML/HTML5_audio_en_video_gebruiken</a></li>
+		</ul>
+		
+		<h3>Can i use supports</h3>
+
+		<img src="images/video-browsersupport.jpg" alt="Caniuse video tag support" />
+
+	</section>
+
+	<section class="audio">
+
+		<h2>Feature 2: Audio element</h2>
+
+		<p>
+		 	Hieronder het audio element dat niet in elke browser wordt ondersteund met mp3-formaat. In IE8 en Opera mini lukt het niet om mp3's af te spelen met het audio element.
+		</p>
+
+		<audio id="audioplayer" preload controls loop>
+		    <source src="../assets/audio/audio.mp3">
+		</audio>
+
+		<script type="text/javascript">
+		    var audioTag = document.createElement('audio');
+		    if (!(!!(audioTag.canPlayType) && ("no" != audioTag.canPlayType("audio/mpeg")) && ("" != audioTag.canPlayType("audio/mpeg")))) {
+		        AudioPlayer.embed("audioplayer", {soundFile: "../assets/audio/audio.mp3"});
+		    }
+		</script>
+
+		<h3>Fallback</h3>
+	
+		<p>
+		 	Om het op te lossen heb ik als fallback een audio tag aangemaakt en vervolgens via het AudioPlayer object de mp3 alsnog laat afspelen met Flash.
+		</p>
+
+		<h3>Sources</h3>
+
+		<ul>
+			<li><a href="https://developer.mozilla.org/nl/docs/Web/Guide/HTML/HTML5_audio_en_video_gebruiken">https://developer.mozilla.org/nl/docs/Web/Guide/HTML/HTML5_audio_en_video_gebruiken</a></li>
+		</ul>
+		
+		<h3>Can i use supports</h3>
+
+		<img src="images/mp3-browsersupport.png" alt="Caniuse audio tag with mp3 support" />
+
+	</section>
+
+</body>
+</html>

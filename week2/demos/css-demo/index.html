@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8 />
+	<title>Browser Technologies: Fons Hettema Demo's</title>
+	<link href="../assets/css/main.css" rel="stylesheet" type="text/css">
+
+	<!--[if lt IE 9]>
+   
+	   <style type="text/css">
+
+		   .color-block { 
+		       background:transparent;
+		       filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#50990000,endColorstr=#50990000); 
+		       zoom: 1;
+		    } 
+
+	    </style>
+
+	<![endif]-->
+
+</head>
+<body>
+	
+	<header>
+	 <h1>CSS demo</h1>
+	</header>
+
+	<section class="svg">
+
+		<h2>Feature 1: Using SVG as background-image</h2>
+
+		<p>
+		 	Using SVG as background-image has its own special set of browser support, but it's essentially the same as using SVG as img. The only problem browsers are IE 8 and down and Android 2.3 and down.
+		</p>
+
+		<a href="./index.html" class="logo">Logo</a>
+
+		<h3>Fallback</h3>
+	
+		<p>
+		 	A clever progressive enhancement flavored technique for using SVG as background-image is by using it in conjunction with multiple backgrounds. SVG and multiple backgrounds have very similar browser support, so if the browser supports multiple backgrounds, it supports SVG, and the declaration will work (and override any previous declaration).
+		</p>
+
+		<h3>Sources</h3>
+
+		<ul>
+			<li><a href="https://css-tricks.com/using-svg/">https://css-tricks.com/using-svg/</a></li>
+		</ul>		
+
+	</section>
+
+	<section class="filters">
+
+		<h2>Feature 2: CSS Alpha transparency support</h2>
+
+		<p>
+		 	RGBa is a way to declare a color in CSS that includes alpha transparency support. This allows us to fill areas with transparent color; the first thee numbers representing the color in RGB values and the fourth representing a transparency value between 0 and 1 (zero being fully transparent and one being fully opaque). This feature now doesn't work in IE8.
+		</p>
+
+		<div class="color-block"></div>
+
+		<h3>Fallback</h3>
+	
+		<p>
+		 	As a fallback for IE8 I've added a conditional stylesheet (see header), which applies a transparent background and a filter to add alpa transparency.
+		</p>
+
+		<h3>Sources</h3>
+
+		<ul>
+			<li><a href="https://css-tricks.com/rgba-browser-support/">https://css-tricks.com/rgba-browser-support/</a></li>
+		</ul>
+		
+		<h3>Can i use supports</h3>
+
+		<img src="images/alphafiltersupport.png" alt="Alpha filter support Caniuse" />
+
+	</section>
+
+</body>
+</html>
