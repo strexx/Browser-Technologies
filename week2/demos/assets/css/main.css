@@ -1,0 +1,98 @@
+/* CSS STYLESHEET */
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: Arial, sans-serif;
+	font-size: 100%;
+}
+
+body > h1 {
+	margin-left: 2em;
+	margin-top: 1em;
+}
+
+header {
+	padding: 1em;
+}
+
+nav {
+	font-size: 1.5em;
+}
+
+nav ul {
+	margin-top: 1em;
+	margin-left: 3.60em;
+}
+
+nav ul li a {
+	display: block;
+	margin-bottom: .5em;
+	text-decoration: none;
+	color: black;
+}
+
+nav ul li a:hover {
+	text-decoration: underline;
+	color: red;
+}
+
+p {
+	margin: 1em 0;
+	max-width: 40em;
+	line-height: 1.8;
+}
+
+section a {
+	color: #381E98;
+	font-size: 1em;
+	text-decoration: none;
+}
+
+section a:hover {
+	color: blue;
+	text-decoration: underline;
+}
+
+section li {
+	padding: .5em 0;
+}
+
+header {
+	width: 100%;
+	text-align: center;
+}
+
+h2, h3 {
+	margin: 2em 0;	
+}
+
+section {
+	padding: 5em;
+	width: 70%;
+	margin: 2em auto;
+	border: 1px solid #B6CBE4;
+	background: #DFEAF7;
+}
+
+/* CSS Demo */
+
+.logo {
+	width: 100px;
+	display: block;
+	height: 100px;
+	text-indent: -9999px;
+	background: url(../../css-demo/images/fallback.png) no-repeat; /* The Fallback */
+  	background-image: url(../../css-demo/images/nodemon.svg), none;
+  	background-size: 100px 82px;
+}
+
+.color-block {
+	width: 200px;
+	height: 200px;
+	background: rgb(200, 54, 54); /* The Fallback */
+   	background: rgba(200, 54, 54, 0.5);
+}

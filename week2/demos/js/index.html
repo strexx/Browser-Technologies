@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8 />
+	<title>Browser Technologies: Fons Hettema Demo's</title>
+	<link href="../assets/css/main.css" rel="stylesheet" type="text/css">
+	<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+</head>
+<body>
+	
+	<header>
+	 <h1>Javascript demo</h1>
+	</header>
+
+	<section class="animation">
+
+		<h2>Feature 1: Animations with requestAnimationFrame</h2>
+
+		<p>
+		 	RequestAnimationFrame is a way to create animations with Javascript. This doesn't work in IE < 10.
+		</p>
+
+		<div class="animationFrame"></div>
+
+		<h3>Fallback</h3>
+
+		<p>If the browser doesn't support GEO location, it is best solved by consulting the maps api with a request.</p>
+	
+		<a href="js-files/init.js">init.js</a>
+
+		<h3>Sources</h3>
+
+		<ul>
+			<li><a href="https://gist.github.com/paulirish/1579671">https://gist.github.com/paulirish/1579671</a></li>
+			<li><a href="http://stackoverflow.com/questions/21177323/for-which-browsers-are-we-using-paul-irishs-requestanimationframe-shim/21300797">http://stackoverflow.com/questions/21177323/for-which-browsers-are-we-using-paul-irishs-requestanimationframe-shim/21300797</a></li>
+		</ul>
+		
+		<h3>Can i use supports</h3>
+
+		<img src="images/requestAnimationFramesupport.png" alt="Caniuse requestAnimationFrame support" />
+
+	</section>
+
+	<section class="geolocation">
+
+		<h2>Feature 1: Geolocation API</h2>
+
+		<p>
+		 	Geolocation is used in many application, but isn't supported in all browsers. It doesn't work in Opera mini and IE < 9.
+		</p>
+
+		<h3>Fallback</h3>
+	
+		<a href="js-files/geolocation.js">geolocation.js</a>
+
+		<h3>Sources</h3>
+
+		<ul>
+			<li><a href="https://gist.github.com/paulirish/366184">https://gist.github.com/paulirish/366184</a></li>
+		</ul>
+		
+		<h3>Can i use supports</h3>
+
+		<img src="images/geolocationsupport.png" alt="Caniuse geolocation support" />
+
+	</section>
+
+	<!-- Scripts -->
+	
+	<script type="text/javascript" src="js-files/init.js"></script>
+	<script type="text/javascript" src="js-files/geolocation.js"></script>
+
+
+</body>
+</html>
