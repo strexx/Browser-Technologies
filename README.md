@@ -13,7 +13,7 @@
 ### Feature: Drag and Drop
 
 ##### Use Case: 
-I want a drag and drop shopping basket where I can drag items in with my mouse
+I want a drag and drop shopping basket where I can drag items in with my mouse.
 
 For this assignment I've build a demo based on a usecase, following the principe of [Progressive Enhancement](https://en.wikipedia.org/wiki/Progressive_enhancement). The purpose of this assignment is to create an application in three layers (HTML, CSS and Javascript). In each of these layers the application has to work and has to be accessible for (all) end users. The first two layers should give the end user the idea of the understanding of the application and the third layer adds javascript functionalities. This is the most interesting part, because draganddrop is only supported with javascript. However, the core functionality of my app is to add items to a shopping cart. So my job during this assignment was to be creative and think of a practical solution.
 
