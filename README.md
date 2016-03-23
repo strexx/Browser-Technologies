@@ -35,4 +35,4 @@ Add drag and drop functionality with javascript by first checking if the feature
 
 ### Accessibility issues
 
-For this assignment I've build a demo based on a usecase, following the principe of progressive enhancement. Purpose of this assignment is to create your application in three layers. In each of this layers the application has to work and has to be accessible for (all) end users. The core functionality should work without CSS and Javascript. The second layer has to work with only CSS and the third layer adds javascript functionalities. This is the most interesting part, because draganddrop is only supported with javascript. However, the core functionality of my app is to add items to a shopping cart.
+When I finished this application, I've tested with a screenreader. While tabbing through the app, the only notable thing was that it said "Voeg toe +" instead of "Voeg toe" when focussing on the add buttons. So I decided to rename the button without the plus sign. The screen reader had no further issues when reading my application.
