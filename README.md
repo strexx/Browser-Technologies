@@ -35,7 +35,7 @@ Add drag and drop functionality with javascript by first checking if the feature
 
 ### Browser tests
 
-#### IOS Safari &#10004;
+#### IOS Safari
 
 As you can see in the overview above, IOS Safari doesn't support drag and drop. I have tested if my core functionality still works on an IOS device. Here are my results simulating an iPhone 6s with Xcode.
 
