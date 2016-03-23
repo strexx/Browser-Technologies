@@ -4,11 +4,11 @@
 
 **Opdracht 2.1 - 1,2,3 Feature Detection**
 
-* [Link](https://strexx.github.io/Browser-Technologies/week2/index.html)
+* [Link to demo](https://strexx.github.io/Browser-Technologies/week2/index.html)
 
 ### Week 3
 
-* [Link](https://strexx.github.io/Browser-Technologies/week3/index.html)
+* [Link to demo](https://strexx.github.io/Browser-Technologies/week3/index.html)
 
 ### Feature: Drag and Drop
 
