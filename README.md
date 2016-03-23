@@ -33,6 +33,16 @@ Add drag and drop functionality with javascript by first checking if the feature
 
 ![CanIUse](readme/caniuse_draganddrop.png)
 
+### Browser tests
+
+#### IOS Safari
+
+As you can see in the overview above, IOS Safari doesn't support drag and drop. I have tested if my core functionality still works on an IOS device. Here are my results simulating an iPhone 6s with Xcode.
+
+![CanIUse](readme/ios_device_productadded.png)
+
+![CanIUse](readme/ios_device_productdeleted.png)
+
 ### Accessibility issues
 
 When I finished this application, I've tested with a screenreader. While tabbing through the app, the only notable thing was that it said "Voeg toe +" instead of "Voeg toe" when focussing on the add buttons. So I decided to rename the button without the plus sign. The screen reader had no further issues when reading my application.
