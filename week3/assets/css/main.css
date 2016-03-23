@@ -1,0 +1,254 @@
+/*******
+
+CSS Stylesheet //
+
+General Style
+
+********/
+
+html {
+    height: 100%;
+}
+
+body {
+    background: #fff;
+    margin: 0;
+    padding: 0;
+    font: 13px/1.5 helvetica, arial, san-serif;
+    height: 100%;
+}
+
+h1 {
+    border-bottom: 1px solid #F5F5F5;
+    padding-bottom: 1em;
+}
+
+h2 {
+    position: absolute;
+    bottom: 20px;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
+    display: none;
+}
+
+p {
+    margin: 0;
+}
+
+hr {
+    color: #DCDCDB;
+}
+
+.flexbox {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/*******
+
+Draggable true on elements
+
+********/
+
+[draggable] {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    /* Required to make elements draggable in old WebKit */
+    -khtml-user-drag: element;
+    -webkit-user-drag: element;
+}
+
+
+/*******
+
+Products
+
+********/
+
+#products {
+    width: 100%;
+    margin-bottom: 2em;
+}
+
+#products > h1 {
+    padding-left: 1em;
+}
+
+#products ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 1em;
+}
+
+#products ul li {
+    display: inline-block;
+    max-width: 184px;
+}
+
+#products ul li button {
+    margin-left: 10px;
+}
+
+.item {
+    display: block;
+    float: left;
+    width: 180px;
+    height: 180px;
+    margin: 10px;
+    border: 1px solid #DEDADA;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    overflow: hidden;
+}
+
+.item:hover {
+    opacity: 0.4;
+}
+
+.item img {
+    border: 0;
+    margin: 10px auto;
+    width: 160px;
+    height: 160px;
+}
+
+.item div {
+    font-family: Helvetica, sans-serif;
+    background: rgb(0, 0, 0);
+    background: rgba(31, 108, 212, 0.75);
+    position: relative;
+    bottom: 53px;
+    color: #f3f3f3;
+    padding: 5px 0;
+}
+
+.opacity {
+    opacity: 0.4;
+}
+
+.yellow {
+    background-color: #FFFF65 !important;
+    border: 2px dashed black !important;
+}
+
+.over {
+    background-color: #FFEDCB !important;
+    border: 2px dashed black !important;
+}
+
+.is-visible {
+    display: block !important;
+}
+
+.draggingMsg {
+    background: #DC9AAB !important;
+}
+
+.successMsg {
+    display: block !important;
+    background: rgb(145, 218, 145) !important;
+}
+
+.deleteMsg {
+    display: block !important;
+    background: rgb(132, 76, 76) !important;
+}
+
+.delete {
+    float: right;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+#message {
+    font-size: 1.1em;
+    background: #DC9AAB;
+    text-align: center;
+    color: white;
+    padding: 1em;
+    display: none;
+}
+
+
+/*******
+
+Grocery list
+
+********/
+
+#grocery-list {
+    min-height: 200px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+#cart {
+    background-color: #F5F5F5;
+    width: 100%;
+    padding: 0 5%;
+    height: 100%;
+}
+
+#cart > h1 {
+    border-bottom: 1px solid #DCDCDB;
+}
+
+#cart ul {
+    padding: 0;
+}
+
+#cart li {
+    list-style: none;
+    border-bottom: 1px solid #ECDDDD;
+    padding: 1em .5em;
+}
+
+#cart li:last-child {
+    border: none;
+    margin-bottom: 1em;
+}
+
+#cart .quantity {
+    font-weight: bold;
+    padding-right: 10px;
+    margin-right: 10px;
+    border-right: 1px solid #494949;
+    display: inline-block;
+    width: 15px;
+    text-align: right;
+}
+
+#cart .price {
+    display: block;
+}
+
+#total {
+    display: block;
+    font-size: 1.2em;
+}
+
+@media all and (min-width: 813px) {
+    .flexbox {
+        flex-direction: row;
+    }
+    #grocery-list {
+        padding: 0 .5em;
+    }
+    #products {
+        width: 65%;
+    }
+    #products ul li {
+        max-width: 244px;
+    }
+    #cart {
+        width: 25%;
+    }
+}

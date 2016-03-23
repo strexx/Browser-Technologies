@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Drag and Drop boodschappenlijst</title>
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+
+<body class="flexbox">
+    <section id="products">
+        <h1>Boodschappen</h1>
+        <ul>
+            <li>
+                <a class="item" href="#" data-product="Cherrytomaten" data-price="5" draggable="true">
+                    <img class="image product-image image-container__image" src="https://www.ah.nl.kpnis.nl/static/product/AHI_434d50303035353636_4_200x200_JPG.JPG" alt="Cherrytomaten">
+                    <div>
+                        <p><strong>Cherrytomaten</strong></p>
+                        <p><strong>Prijs</strong>: <span>&euro; 5,00</span></p>
+                    </div>
+                </a>
+                <button data-product="Haricots verts verpakt" data-price="5" rel="button">Voeg toe +</button>
+            </li>
+            <li>
+                <a class="item" href="#" data-product="Haricots verts verpakt" data-price="5" draggable="true">
+                    <img class="image product-image image-container__image" src="https://www.ah.nl.kpnis.nl/static/product/AHI_434d50303135363937_3_200x200_JPG.JPG" alt="Haricots verts verpakt">
+                    <div>
+                        <p><strong>Haricots verts</strong></p>
+                        <p><strong>Prijs</strong>: <span>&euro; 5,00</span></p>
+                    </div>
+                </a>
+                <button rel="button">Voeg toe +</button>
+            </li>
+            <li>
+                <a class="item" href="#" data-product="Groene aspergetips" data-price="5" draggable="true">
+                    <img class="image product-image image-container__image" src="https://www.ah.nl.kpnis.nl/static/product/AHI_434d50303135363838_2_200x200_JPG.JPG" alt="Groene aspergetips">
+                    <div>
+                        <p><strong>Groene aspergetips</strong></p>
+                        <p><strong>Prijs</strong>: <span>&euro; 5,00</span></p>
+                    </div>
+                </a>
+                <button rel="button">Voeg toe +</button>
+            </li>
+            <li>
+                <a class="item" href="#" data-product="Geitenkaas jong belegen" data-price="5" draggable="true">
+                    <img class="image product-image image-container__image" src="https://www.ah.nl.kpnis.nl/static/product/AHI_434d50303737363631_2_200x200_JPG.JPG" alt="Geitenkaas jong belegen 50+ stuk">
+                    <div>
+                        <p><strong>Geitenkaas jong belegen</strong></p>
+                        <p><strong>Prijs</strong>: <span>&euro; 5,00</span></p>
+                    </div>
+                </a>
+                <button rel="button">Voeg toe +</button>
+            </li>
+            <li>
+                <a class="item" href="#" data-product="Chinois brioche" data-price="5" draggable="true">
+                    <img class="image product-image image-container__image" src="https://www.ah.nl.kpnis.nl/static/product/AHI_434d50313738333831_1_200x200_JPG.JPG" alt="Chinois brioche">
+                    <div>
+                        <p><strong>Chinois brioche</strong></p>
+                        <p><strong>Prijs</strong>: <span>&euro; 5,00</span></p>
+                    </div>
+                </a>
+                <button rel="button">Voeg toe +</button>
+            </li>
+            <li>
+                <a class="item" href="#" data-product="Goudse jong 48+ stuk" data-price="5" draggable="true">
+                    <img class="image product-image image-container__image" src="https://www.ah.nl.kpnis.nl/static/product/AHI_434d50323234363632_1_200x200_JPG.JPG" alt="Goudse jong 48+ stuk">
+                    <div>
+                        <p><strong>Goudse jong 48+ stuk</strong></p>
+                        <p><strong>Prijs</strong>: <span>&euro; 5,00</span></p>
+                    </div>
+                </a>
+                <button rel="button">Voeg toe +</button>
+            </li>
+        </ul>
+    </section>
+    <section id="cart">
+        <h1>Lijstje</h1>
+        <p id="message">Sleep hierin om toe te voegen</p>
+        <ul id="grocery-list"></ul>
+        <hr />
+        <p id="total"><strong>Totaal:</strong> &euro; <span id="totalPrice">0</span>,-</p>
+        <h2>Drop here to add to cart</h2>
+    </section>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
