@@ -27,7 +27,7 @@ Add clickable and functional buttons under the grocery items that adds up to the
 
 Add drag and drop functionality with javascript by first checking if the feature is available in the browser. If so, add functions to enhance to application.
 
-![With drag and drop](readme/with_draganddrop.png)
+![With drag and drop](readme/with_draganddrop.png) ![While dragging](readme/dragintofield.png)
 
 ### Browser support
 
