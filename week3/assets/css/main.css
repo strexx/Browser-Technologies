@@ -39,7 +39,7 @@ hr {
     color: #DCDCDB;
 }
 
-.flexbox {
+.wrapper {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -245,7 +245,7 @@ Grocery list
 }
 
 @media all and (min-width: 813px) {
-    .flexbox {
+    .wrapper {
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
         -webkit-flex-direction: row;
