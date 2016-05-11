@@ -35,15 +35,16 @@ function start() {
             productPrice = parseInt(item.getAttribute('data-price'));
         }
 
-        list.innerHTML += '<li data-price="' + productPrice + '">' + productName + '<button class="delete">Delete</button></li>';
+        list.innerHTML += '<li data-price="' + productPrice + '">' + productName + '<button class="delete" rel="button">Delete</button></li>';
 
         checkPrices();
         deleteButtonListeners();
 
         // Add status message
-        message.classList.remove('is-visible');
+        message.classList.remove('hidden');
         message.classList.remove('draggingMsg');
         message.classList.remove('deleteMsg');
+        message.classList.add('is-visible');
         message.classList.add('successMsg');
         showMessage("Product toegevoegd &#10004");
     }
@@ -61,8 +62,10 @@ function start() {
         // Remove status message if grocery list is empty
         var listItems = document.querySelectorAll('#grocery-list li');
 
-        if (!listItems.length)
+        if (!listItems.length) {
             message.classList.remove('deleteMsg');
+            message.classList.add('hidden');
+        }
     }
 
     function checkPrices() {
@@ -72,7 +75,7 @@ function start() {
         [].forEach.call(listItems, function(item) {
             total += Number(item.getAttribute('data-price'));
         });
-        totalPrice.innerHTML = total;
+        totalPrice.innerHTML = "&euro; " + total;
     }
 
     function deleteButtonListeners() {
@@ -115,6 +118,7 @@ function start() {
 
         function handleDragStart(e) {
             selected = this;
+            message.classList.remove('hidden');
             showMessage("Sleep hierin om toe te voegen");
             this.classList.add('opacity');
             list.classList.add('over');
@@ -155,6 +159,7 @@ function start() {
             addButtonListeners();
 
             // Add status message
+            message.classList.remove('hidden');
             message.classList.remove('is-visible');
             message.classList.remove('draggingMsg');
             message.classList.remove('deleteMsg');
@@ -168,6 +173,12 @@ function start() {
 
         function handleDragEnd(e) {
 
+            // Remove status message if grocery list is empty
+            var listItems = document.querySelectorAll('#grocery-list li');
+
+            if (!listItems.length)
+                message.classList.add('hidden');
+
             // Remove classes
             message.classList.remove('is-visible');
             message.classList.remove('draggingMsg');
@@ -177,6 +188,8 @@ function start() {
             [].forEach.call(items, function(item) {
                 item.classList.remove('opacity');
             });
+
+            console.log("handleDragEnd");
         }
 
         // On page ready

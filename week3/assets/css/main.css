@@ -155,31 +155,29 @@ Products
 /* STATES */
 
 .yellow {
-    background-color: #FFFF65 !important;
-    border: 2px dashed black !important;
+    background-color: #FFFF65;
+    border: 2px dashed black;
 }
 
 .over {
-    background-color: #FFEDCB !important;
-    border: 2px dashed black !important;
+    background-color: #FFEDCB;
+    border: 2px dashed black;
 }
 
 .is-visible {
-    display: block !important;
+    display: block;
 }
 
 .draggingMsg {
-    background: #DC9AAB !important;
+    background: #DC9AAB;
 }
 
 .successMsg {
-    display: block !important;
-    background: rgb(145, 218, 145) !important;
+    background: rgb(145, 218, 145);
 }
 
 .deleteMsg {
-    display: block !important;
-    background: rgb(132, 76, 76) !important;
+    background: rgb(132, 76, 76);
 }
 
 .delete {
@@ -191,13 +189,15 @@ Products
     display: none;
 }
 
+.background-none {
+    background: none;
+}
+
 #message {
     font-size: 1.1em;
-    background: #DC9AAB;
     text-align: center;
     color: white;
     padding: 1em;
-    display: none;
 }
 
 
