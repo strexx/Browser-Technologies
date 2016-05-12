@@ -1,8 +1,16 @@
+// Start if javascript core functions are up and running
+if ((document.querySelectorAll || document.querySelector) && ('forEach' in Array.prototype)) {
+    start();
+}
+
 function start() {
 
     "use strict";
 
-    // Feature detection
+    // Add button functionality
+    addButtonListeners();
+
+    // Feature detection for drag and drop
     var supportsDragAndDrop = function() {
         var div = document.createElement('div');
         return ('draggable' in div) || ('ondragstart' in div && 'ondrop' in div);
@@ -11,8 +19,6 @@ function start() {
     // Check if draganddrop is supported
     if (supportsDragAndDrop) {
         addFunctions();
-    } else {
-        addButtonListeners();
     }
 
     // Global vars
@@ -20,22 +26,29 @@ function start() {
         totalPrice = document.querySelector('#totalPrice'),
         items = document.querySelectorAll('#products .item'),
         message = document.querySelector('#message'),
-        selected;
+        selected,
+        status;
 
+    // Add items to grocery list
     function addItem(item) {
 
-        var productName, productPrice;
+        var productName, productPrice, form, div;
 
+        // Check if added via button
         if (item.nodeName == "BUTTON") {
-            item = item.previousElementSibling;
+            form = item.parentNode;
+            div = form.parentNode;
+            item = div.firstChild.nextSibling;
             productName = item.getAttribute('data-product');
             productPrice = parseInt(item.getAttribute('data-price'));
-        } else {
+        } 
+        // Otherwise added by dragging and dropping
+        else {
             productName = item.getAttribute('data-product');
             productPrice = parseInt(item.getAttribute('data-price'));
         }
 
-        list.innerHTML += '<li data-price="' + productPrice + '">' + productName + '<button class="delete" rel="button">Delete</button></li>';
+        list.innerHTML += '<li data-price="' + productPrice + '">' + productName + '<button class="delete" role="button">Delete</button></li>';
 
         checkPrices();
         deleteButtonListeners();
@@ -46,9 +59,10 @@ function start() {
         message.classList.remove('deleteMsg');
         message.classList.add('is-visible');
         message.classList.add('successMsg');
-        showMessage("Product toegevoegd &#10004");
+        showMessage("Product toegevoegd &#10004", "added");
     }
 
+    // Delete products from grocery list
     function deleteItem(item) {
         var elem = item.parentElement;
         elem.remove();
@@ -57,7 +71,7 @@ function start() {
         message.classList.remove('draggingMsg');
         message.classList.remove('successMsg');
         message.classList.add('deleteMsg');
-        showMessage("Product verwijderd &#10004;");
+        showMessage("Product verwijderd &#10004;", "deleted");
 
         // Remove status message if grocery list is empty
         var listItems = document.querySelectorAll('#grocery-list li');
@@ -68,6 +82,7 @@ function start() {
         }
     }
 
+    // Count total prices and add up
     function checkPrices() {
         var listItems = document.querySelectorAll('#grocery-list li'),
             total = 0;
@@ -78,6 +93,7 @@ function start() {
         totalPrice.innerHTML = "&euro; " + total;
     }
 
+    // Remove product functionality to delete buttons
     function deleteButtonListeners() {
         var deleteButtons = document.querySelectorAll(".delete");
         [].forEach.call(deleteButtons, function(button) {
@@ -89,6 +105,7 @@ function start() {
         });
     }
 
+    // Add product functionality to buttons
     function addButtonListeners() {
         var addButtons = document.querySelectorAll('#products button');
 
@@ -101,25 +118,19 @@ function start() {
         });
     }
 
-    function showMessage(message) {
+    // Status message above grocery list
+    function showMessage(message, statusMsg) {
         var messageBox = document.querySelector('#message');
         messageBox.innerHTML = message;
+        status = statusMsg;
     }
 
     function addFunctions() {
 
-        // Show core functionality buttons for adding to grocery list
-        function hideButtons() {
-            var buttons = document.querySelectorAll('#products button');
-            [].forEach.call(buttons, function(button) {
-                button.classList.add("hidden");
-            });
-        }
-
         function handleDragStart(e) {
             selected = this;
             message.classList.remove('hidden');
-            showMessage("Sleep hierin om toe te voegen");
+            showMessage("Sleep hierin om toe te voegen", "dragging");
             this.classList.add('opacity');
             list.classList.add('over');
             message.classList.remove('deleteMsg');
@@ -156,7 +167,7 @@ function start() {
             // If dropped add item to list
             addItem(selected);
             checkPrices();
-            addButtonListeners();
+            //addButtonListeners();
 
             // Add status message
             message.classList.remove('hidden');
@@ -164,7 +175,7 @@ function start() {
             message.classList.remove('draggingMsg');
             message.classList.remove('deleteMsg');
             message.classList.add('successMsg');
-            showMessage("Product toegevoegd &#10004");
+            showMessage("Product toegevoegd &#10004", "added");
 
             console.log("handleDrop");
 
@@ -176,7 +187,7 @@ function start() {
             // Remove status message if grocery list is empty
             var listItems = document.querySelectorAll('#grocery-list li');
 
-            if (!listItems.length)
+            if (status === "dragging")
                 message.classList.add('hidden');
 
             // Remove classes
@@ -195,9 +206,6 @@ function start() {
         // On page ready
         document.addEventListener('DOMContentLoaded', function() {
 
-            // Hide core functionality buttons
-            hideButtons();
-
             // Add events
             list.addEventListener('dragenter', handleDragEnter, false)
             list.addEventListener('dragover', handleDragOver, false);
@@ -212,5 +220,3 @@ function start() {
         });
     }
 }
-
-start();
