@@ -46,6 +46,7 @@ As you can see in the overview above, IOS Safari doesn't support drag and drop. 
 - Safari &#10004;
 - Firefox &#10004;
 - Chrome &#10004;
+- IE &#10004;
 
 ### Accessibility issues
 
