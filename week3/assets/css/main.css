@@ -2,7 +2,11 @@
 
 CSS Stylesheet //
 
-General Style
+********/
+
+/*******
+
+General Styles
 
 ********/
 
@@ -31,6 +35,10 @@ h2 {
     display: none;
 }
 
+ol, ul {
+    list-style: none;
+}
+
 p {
     margin: 0;
 }
@@ -39,16 +47,15 @@ hr {
     color: #DCDCDB;
 }
 
+/*******
+
+Wrapper
+
+********/
+
 .wrapper {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
+    display: inline-block;
+    height: 100%;
 }
 
 
@@ -93,6 +100,9 @@ Products
 
 #products ul li {
     display: inline-block;
+    list-style: none;
+    list-style-image: none;
+    list-style-type: none;
     max-width: 184px;
 }
 
@@ -101,7 +111,6 @@ Products
 }
 
 .item {
-    display: block;
     float: left;
     width: 180px;
     height: 180px;
@@ -127,7 +136,7 @@ Products
 
 .item__info {
     font-family: Helvetica, sans-serif;
-    background: rgb(0, 0, 0);
+    background: #1f6cd4;
     background: rgba(31, 108, 212, 0.75);
     position: relative;
     bottom: 53px;
@@ -203,7 +212,7 @@ Products
 
 /*******
 
-Grocery list
+Cart
 
 ********/
 
@@ -214,7 +223,9 @@ Grocery list
     box-sizing: border-box;
 }
 
-#cart {
+#cart { 
+    height: 100%;
+    width: 100%;
     background-color: #F5F5F5;
     padding: 0 5%;
 }
@@ -259,24 +270,25 @@ Grocery list
         font-weight: normal;
     }
 
+/* Mediaqueries */
+
 @media all and (min-width: 813px) {
     .wrapper {
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        -webkit-flex-direction: row;
-        -ms-flex-direction: row;
-        flex-direction: row;
+        display: inline-block;
+        width: 100%;
     }
     #grocery-list {
         padding: 0 .5em;
     }
     #products {
+        float: left;
         width: 65%;
     }
     #products ul li {
         max-width: 244px;
     }
     #cart {
+        float: left;
         width: 25%;
     }
 }
