@@ -31,7 +31,7 @@ Add drag and drop functionality with javascript by first checking if the feature
 
 ### Browser support
 
-![CanIUse](readme/caniuse_draganddrop.png)
+![http://caniuse.com/#search=drag](readme/caniuse_draganddrop.png)
 
 ### Browser tests
 
