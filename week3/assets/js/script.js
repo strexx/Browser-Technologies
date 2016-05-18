@@ -7,8 +7,9 @@ function start() {
 
     "use strict";
 
-    // Add button functionality
-    addButtonListeners();
+    // Add button functionality if addEventListener support
+    if (document.addEventListener)
+        addButtonListeners();
 
     // Feature detection for drag and drop
     var supportsDragAndDrop = function() {
@@ -17,9 +18,8 @@ function start() {
     };
 
     // Check if draganddrop is supported
-    if (supportsDragAndDrop) {
+    if (supportsDragAndDrop)
         addFunctions();
-    }
 
     // Global vars
     var list = document.querySelector('#grocery-list'),
@@ -28,6 +28,32 @@ function start() {
         message = document.querySelector('#message'),
         selected,
         status;
+
+    // Remove function IE9 <
+    Element.prototype.remove = function() {
+        this.parentElement.removeChild(this);
+    }
+
+    // Check if element has class
+    function hasClass(el, className) {
+        if (el.classList)
+            return el.classList.contains(className)
+        else
+            return !!el.className.match(new RegExp('(\\s|^)' + className + '(\\s|$)'))
+    }
+
+    // Add class function for IE9 and lower
+    function addClass(ele, cls) {
+        if (!hasClass(ele, cls)) ele.className += " " + cls;
+    }
+
+    // Remove class function for IE9 and lower
+    function removeClass(ele, cls) {
+        if (hasClass(ele, cls)) {
+            var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
+            ele.className = ele.className.replace(reg, ' ');
+        }
+    }
 
     // Add items to grocery list
     function addItem(item) {
@@ -41,7 +67,7 @@ function start() {
             item = div.firstChild.nextSibling;
             productName = item.getAttribute('data-product');
             productPrice = parseInt(item.getAttribute('data-price'));
-        } 
+        }
         // Otherwise added by dragging and dropping
         else {
             productName = item.getAttribute('data-product');
@@ -54,11 +80,13 @@ function start() {
         deleteButtonListeners();
 
         // Add status message
-        message.classList.remove('hidden');
-        message.classList.remove('draggingMsg');
-        message.classList.remove('deleteMsg');
-        message.classList.add('is-visible');
-        message.classList.add('successMsg');
+        removeClass(message, 'hidden');
+        removeClass(message, 'draggingMsg');
+        removeClass(message, 'deleteMsg');
+        addClass(message, 'is-visible');
+        addClass(message, 'successMsg');
+
+        // Show message
         showMessage("Product toegevoegd &#10004", "added");
     }
 
@@ -67,18 +95,19 @@ function start() {
         var elem = item.parentElement;
         elem.remove();
         checkPrices();
-        message.classList.remove('is-visible');
-        message.classList.remove('draggingMsg');
-        message.classList.remove('successMsg');
-        message.classList.add('deleteMsg');
+
+        removeClass(message, 'draggingMsg');
+        removeClass(message, 'successMsg');
+        addClass(message, 'deleteMsg');
+
         showMessage("Product verwijderd &#10004;", "deleted");
 
         // Remove status message if grocery list is empty
         var listItems = document.querySelectorAll('#grocery-list li');
 
         if (!listItems.length) {
-            message.classList.remove('deleteMsg');
-            message.classList.add('hidden');
+            removeClass(message, 'deletemsg');
+            addClass(message, 'hidden');
         }
     }
 
@@ -96,6 +125,7 @@ function start() {
     // Remove product functionality to delete buttons
     function deleteButtonListeners() {
         var deleteButtons = document.querySelectorAll(".delete");
+
         [].forEach.call(deleteButtons, function(button) {
             button.addEventListener('click', function(index) {
                 return function() {
@@ -129,14 +159,17 @@ function start() {
 
         function handleDragStart(e) {
             selected = this;
-            message.classList.remove('hidden');
+
+            removeClass(message, 'hidden');
+
             showMessage("Sleep hierin om toe te voegen", "dragging");
-            this.classList.add('opacity');
-            list.classList.add('over');
-            message.classList.remove('deleteMsg');
-            message.classList.remove('successMsg');
-            message.classList.add('is-visible');
-            message.classList.add('draggingMsg');
+            addClass(this, 'opacity');
+            addClass(list, 'over');
+
+            removeClass(message, 'deleteMsg');
+            removeClass(message, 'successMsg');
+            addClass(message, 'is-visible');
+            addClass(message, 'draggingMsg');
         }
 
         function handleDragOver(e) {
@@ -148,13 +181,13 @@ function start() {
         }
 
         function handleDragEnter(e) {
-            list.classList.remove('over');
-            list.classList.add('yellow');
+            removeClass(list, 'over');
+            addClass(list, 'yellow');
             console.log("handleDragEnter");
         }
 
         function handleDragLeave(e) {
-            list.classList.add('over');
+            addClass(list, 'over');
             console.log("handleDragLeave");
         }
 
@@ -167,14 +200,13 @@ function start() {
             // If dropped add item to list
             addItem(selected);
             checkPrices();
-            //addButtonListeners();
 
             // Add status message
-            message.classList.remove('hidden');
-            message.classList.remove('is-visible');
-            message.classList.remove('draggingMsg');
-            message.classList.remove('deleteMsg');
-            message.classList.add('successMsg');
+            removeClass(message, 'hidden');
+            removeClass(message, 'is-visible');
+            removeClass(message, 'draggingMsg');
+            removeClass(message, 'deleteMsg');
+            addClass(message, 'successMsg');
             showMessage("Product toegevoegd &#10004", "added");
 
             console.log("handleDrop");
@@ -188,16 +220,17 @@ function start() {
             var listItems = document.querySelectorAll('#grocery-list li');
 
             if (status === "dragging")
-                message.classList.add('hidden');
+                addClass(message, 'hidden');
 
             // Remove classes
-            message.classList.remove('is-visible');
-            message.classList.remove('draggingMsg');
-            list.classList.remove('over');
-            list.classList.remove('yellow');
+            removeClass(message, 'is-visible');
+            removeClass(message, 'draggingMsg');
+
+            removeClass(list, 'over');
+            removeClass(list, 'yellow');
 
             [].forEach.call(items, function(item) {
-                item.classList.remove('opacity');
+                removeClass(item, 'opacity');
             });
 
             console.log("handleDragEnd");
@@ -213,6 +246,7 @@ function start() {
             list.addEventListener('dragleave', handleDragLeave, false);
 
             var items = document.querySelectorAll('#products .item');
+
             [].forEach.call(items, function(item) {
                 item.addEventListener('dragstart', handleDragStart, false);
                 item.addEventListener('dragend', handleDragEnd, false);
