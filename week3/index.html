@@ -7,79 +7,93 @@
     <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 
-<body class="flexbox">
-    <section id="products">
-        <h1>Boodschappen</h1>
-        <ul>
-            <li>
-                <a class="item" href="#" data-product="Cherrytomaten" data-price="5" draggable="true">
-                    <img class="image product-image image-container__image" src="https://www.ah.nl.kpnis.nl/static/product/AHI_434d50303035353636_4_200x200_JPG.JPG" alt="Cherrytomaten">
-                    <div>
-                        <p><strong>Cherrytomaten</strong></p>
-                        <p><strong>Prijs</strong>: <span>&euro; 5,00</span></p>
+<body>
+    <div class="wrapper">
+        <div id="products">
+            <h1>Boodschappen</h1>
+            <ul>
+                <li>
+                    <div class="item" data-product="Cherrytomaten" data-price="5" draggable="true">
+                        <img class="item__image" alt="" src="https://www.ah.nl.kpnis.nl/static/product/AHI_434d50303035353636_4_200x200_JPG.JPG">
+                        <div class="item__info">
+                            <p class="item__title">Cherrytomaten</p>
+                            <p class="item__price">Prijs: <span>&euro; 5,00</span></p>
+                        </div>
                     </div>
-                </a>
-                <button data-product="Haricots verts verpakt" data-price="5" rel="button">Voeg toe</button>
-            </li>
-            <li>
-                <a class="item" href="#" data-product="Haricots verts verpakt" data-price="5" draggable="true">
-                    <img class="image product-image image-container__image" src="https://www.ah.nl.kpnis.nl/static/product/AHI_434d50303135363937_3_200x200_JPG.JPG" alt="Haricots verts verpakt">
-                    <div>
-                        <p><strong>Haricots verts</strong></p>
-                        <p><strong>Prijs</strong>: <span>&euro; 5,00</span></p>
+                    <form action="handler.php" method="post" class="item__form" onsubmit="event.preventDefault();">
+                        <button name="item" value="1">Voeg toe</button>
+                    </form>
+                </li>
+                <li>
+                    <div class="item" data-product="Haricots verts" data-price="5" draggable="true">
+                        <img class="item__image" alt="" src="https://www.ah.nl.kpnis.nl/static/product/AHI_434d50303135363937_3_200x200_JPG.JPG">
+                        <div class="item__info">
+                            <p class="item__title">Haricots verts</p>
+                            <p class="item__price">Prijs: <span>&euro; 5,00</span></p>
+                        </div>
                     </div>
-                </a>
-                <button rel="button">Voeg toe</button>
-            </li>
-            <li>
-                <a class="item" href="#" data-product="Groene aspergetips" data-price="5" draggable="true">
-                    <img class="image product-image image-container__image" src="https://www.ah.nl.kpnis.nl/static/product/AHI_434d50303135363838_2_200x200_JPG.JPG" alt="Groene aspergetips">
-                    <div>
-                        <p><strong>Groene aspergetips</strong></p>
-                        <p><strong>Prijs</strong>: <span>&euro; 5,00</span></p>
+                    <form action="handler.php" method="post" class="item__form" onsubmit="event.preventDefault();">
+                        <button name="item" value="2">Voeg toe</button>
+                    </form>
+                </li>
+                <li>
+                    <div class="item" data-product="Groene aspergetips" data-price="5" draggable="true">
+                        <img class="item__image" alt="" src="https://www.ah.nl.kpnis.nl/static/product/AHI_434d50303135363838_2_200x200_JPG.JPG">
+                        <div class="item__info">
+                            <p class="item__title">Groene aspergetips</p>
+                            <p class="item__price">Prijs: <span>&euro; 5,00</span></p>
+                        </div>
                     </div>
-                </a>
-                <button rel="button">Voeg toe</button>
-            </li>
-            <li>
-                <a class="item" href="#" data-product="Geitenkaas jong belegen" data-price="5" draggable="true">
-                    <img class="image product-image image-container__image" src="https://www.ah.nl.kpnis.nl/static/product/AHI_434d50303737363631_2_200x200_JPG.JPG" alt="Geitenkaas jong belegen 50+ stuk">
-                    <div>
-                        <p><strong>Geitenkaas jong belegen</strong></p>
-                        <p><strong>Prijs</strong>: <span>&euro; 5,00</span></p>
+                    <form action="handler.php" method="post" class="item__form" onsubmit="event.preventDefault();">
+                        <button name="item"  value="3">Voeg toe</button>
+                    </form>
+                </li>
+                <li>
+                    <div class="item" data-product="Geitenkaas jong belegen" data-price="5" draggable="true">
+                        <img class="item__image" alt="" src="https://www.ah.nl.kpnis.nl/static/product/AHI_434d50303737363631_2_200x200_JPG.JPG">
+                        <div class="item__info">
+                            <p class="item__title">Geitenkaas jong belegen</p>
+                            <p class="item__price">Prijs: <span>&euro; 5,00</span></p>
+                        </div>
                     </div>
-                </a>
-                <button rel="button">Voeg toe</button>
-            </li>
-            <li>
-                <a class="item" href="#" data-product="Chinois brioche" data-price="5" draggable="true">
-                    <img class="image product-image image-container__image" src="https://www.ah.nl.kpnis.nl/static/product/AHI_434d50313738333831_1_200x200_JPG.JPG" alt="Chinois brioche">
-                    <div>
-                        <p><strong>Chinois brioche</strong></p>
-                        <p><strong>Prijs</strong>: <span>&euro; 5,00</span></p>
+                    <form action="handler.php" method="post" class="item__form" onsubmit="event.preventDefault();">
+                        <button name="item"  value="4">Voeg toe</button>
+                    </form>
+                </li>
+                <li>
+                    <div class="item" data-product="Chinois brioche" data-price="5" draggable="true">
+                        <img class="item__image" alt="" src="https://www.ah.nl.kpnis.nl/static/product/AHI_434d50313738333831_1_200x200_JPG.JPG">
+                        <div class="item__info">
+                            <p class="item__title">Chinois brioche</p>
+                            <p class="item__price">Prijs: <span>&euro; 5,00</span></p>
+                        </div>
                     </div>
-                </a>
-                <button rel="button">Voeg toe</button>
-            </li>
-            <li>
-                <a class="item" href="#" data-product="Goudse jong 48+ stuk" data-price="5" draggable="true">
-                    <img class="image product-image image-container__image" src="https://www.ah.nl.kpnis.nl/static/product/AHI_434d50323234363632_1_200x200_JPG.JPG" alt="Goudse jong 48+ stuk">
-                    <div>
-                        <p><strong>Goudse jong 48+ stuk</strong></p>
-                        <p><strong>Prijs</strong>: <span>&euro; 5,00</span></p>
+                    <form action="handler.php" method="post" class="item__form" onsubmit="event.preventDefault();;">
+                        <button name="item"  value="5">Voeg toe</button>
+                    </form>
+                </li>
+                <li>
+                    <div class="item" data-product="Goudse jong 48+" data-price="5" draggable="true">
+                        <img class="item__image" alt="" src="https://www.ah.nl.kpnis.nl/static/product/AHI_434d50323234363632_1_200x200_JPG.JPG">
+                        <div class="item__info">
+                            <p class="item__title">Goudse jong 48+</p>
+                            <p class="item__price">Prijs: <span>&euro; 5,00</span></p>
+                        </div>
                     </div>
-                </a>
-                <button rel="button">Voeg toe</button>
-            </li>
-        </ul>
-    </section>
-    <section id="cart">
-        <h1>Lijstje</h1>
-        <p id="message">Sleep hierin om toe te voegen</p>
-        <ul id="grocery-list"></ul>
-        <hr />
-        <p id="total"><strong>Totaal:</strong> &euro; <span id="totalPrice">0</span>,-</p>
-    </section>
+                    <form action="handler.php" method="post" class="item__form" onsubmit="event.preventDefault();">
+                        <button name="item"  value="6">Voeg toe</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+        <div id="cart">
+            <h1>Lijstje</h1>
+            <p id="message" class="hidden"></p>
+            <ul id="grocery-list"></ul>
+            <hr />
+            <p id="total">Totaal: <span id="totalPrice">&euro; 0</span></p>
+        </div>
+    </div>
     <script src="assets/js/script.js"></script>
 </body>
 
